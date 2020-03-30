@@ -1,0 +1,33 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Trenéři - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Jméno</th>
+                    <th>Přezdívka</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $treneri as $trener}
+                    <tr>
+                        <td>{$trener->id}</td>
+                        <td>{$trener->jmeno} {$trener->prijmeni}</td>
+                        <td><a n:href="Treneri:trener $trener->id" target="_blank">{$trener->prezdivka}</a></td>
+                        <td>
+                            <a n:href=":upravitTrenera $trener->id" class="fa fa-pencil"></a>
+                            <a href="{link :smazatTrenera! $trener->id}" class="fa fa-trash"></a>
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+            <a n:href=":pridatTrenera" class="fa fa-plus-circle"></a>
+        </div>
+    </div>
+{/block}

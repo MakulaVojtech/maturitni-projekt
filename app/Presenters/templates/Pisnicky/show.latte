@@ -1,0 +1,31 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/pisnicky.css">
+{/block}
+
+{block content}
+    <article>
+        <div id="pisnicka">
+            <section>
+                <h1 n:block="title">{$pisnicka->nazev}</h1>
+                <i>
+                    {switch $pisnicka->rytmus}
+                        {case angola}
+                        Angola
+                        {case benguela}
+                        Benguela
+                        {case saobento}
+                        São Bento
+                        {case samba}
+                        Samba
+                        {case maculele}
+                        Maculelê
+                    {/switch}
+                </i>
+            </section>
+            <section>
+                <div>{$pisnicka->text|noescape}</div>
+                <iframe width="560" height="315" src="{$pisnicka->odkaz}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </section>
+        </div>
+    </article>
+{/block}

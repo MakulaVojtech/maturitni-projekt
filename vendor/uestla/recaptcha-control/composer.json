@@ -1,0 +1,39 @@
+{
+	"name": "uestla/recaptcha-control",
+	"type": "library",
+	"description": "reCAPTCHA control for Nette Framework forms",
+	"keywords": ["nette", "forms", "recaptcha"],
+	"homepage": "https://github.com/uestla/ReCaptchaControl",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/uestla/ReCaptchaControl/issues"
+	},
+	"require": {
+		"php": ">=7.1",
+		"nette/di": "^3.0",
+		"nette/http": "^3.0",
+		"nette/forms": "^3.0",
+		"nette/utils": "^3.0",
+		"nette/php-generator": "^3.0"
+	},
+	"require-dev": {
+		"tracy/tracy": "^2.6",
+		"latte/latte": "^2.5",
+		"nette/bootstrap": "^3.0",
+		"nette/tester": "^2.2",
+		"guzzlehttp/guzzle": "^6.3"
+	},
+	"suggest": {
+		"ext-curl": "Needed by the default ReCaptchaControl\\Http\\Requester\\CurlRequester.",
+		"guzzlehttp/guzzle": "Needed by ReCaptchaControl\\Http\\Requester\\GuzzleRequester."
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	},
+	"scripts": {
+		"ci": ["@phpstan", "@test"],
+		"phpstan": "phpstan analyse",
+		"test": "tester -C tests/tester/",
+		"test-coverage": "tester -C --coverage-src src/RecaptchaControl --coverage-src tests/tester/ --coverage tests/var/log/coverage.html tests/tester/"
+	}
+}

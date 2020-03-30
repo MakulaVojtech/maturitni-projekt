@@ -1,0 +1,36 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nadpis</th>
+                    <th>Přidána</th>
+                    <th>Napsal/a</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $novinky as $novinka}
+                    <tr>
+                        <td>{$novinka->id}</td>
+                        <td><a n:href="Novinky:show $novinka->id" target="_blank">{$novinka->nadpis}</a></td>
+                        <td>{$novinka->vytvoreno|date:'%e. %m. %Y'}</td>
+                        <td>{$novinka->uzivatel->login}</td>
+                        <td>
+                            <a href="{link skrytNovinku! $novinka->id}" class="fa fa-eye" {if $novinka->viditelna == 0}style="color:darkgrey;{/if}"></a>
+                            <a n:href="upravitNovinku $novinka->id" class="fa fa-pencil"></a>
+                            {if $novinka->smazatelna == 1}<a n:href="Admin:smazatNovinku $novinka->id" class="fa fa-trash"></a>{/if}
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+            <a n:href="Admin:napsatNovinku" class="fa fa-plus-circle"></a>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,53 @@
+article{
+    min-height: 35vh;
+    width: 65%;
+    margin:auto;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 30px;
+}
+article section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+article section *{
+    padding: 20px;
+    font-style: italic;
+}
+article section div{
+    display: flex;
+}
+article > div{
+    border-top: 2px solid rgba(11, 32, 39, 1);
+    padding: 15px;
+}
+article a{
+    color: rgb(34, 104, 128);
+    font-style: italic;
+    text-decoration: none;
+}
+.vypisNovinek{
+    padding: 30px 15px;
+    width: 100%;
+    border: 0px;
+    color: black;
+    transition: 0.5s;
+}
+.vypisNovinek:hover{
+    transition: 0.5s;
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.75);
+}
+
+@media screen and (max-width:898px){
+    article section{
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    article{
+        width:90%;
+    }
+}

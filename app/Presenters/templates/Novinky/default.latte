@@ -1,0 +1,21 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/novinka.css">
+{/block}
+{block title}
+    Novinky
+{/block}
+{block content}
+    <article>
+        {if $novinky == null}
+            <h1>Nejsou zde zatím žádné novinky</h1>
+        {/if}
+        {foreach $novinky as $novinka}
+            <a n:href="Novinky:show $novinka->id">
+                <div class="vypisNovinek">
+                    <h1>{$novinka->nadpis}</h1>
+                    <p>{$novinka->text|noescape|striptags|truncate:250 }</p>
+                </div>
+            </a>
+        {/foreach}
+    </article>
+{/block}

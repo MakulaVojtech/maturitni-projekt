@@ -1,0 +1,33 @@
+
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/novinka.css">
+    <link rel="stylesheet" href="{$basePath}/css/lightbox.css">
+{/block}
+
+{block content}
+    <article>
+        <section>
+            <h1 n:block="title">{$novinka->nadpis}</h1>
+            <div>
+                <p>{$novinka->vytvoreno|date:'%e. %m. %Y'}</p>
+                <p>{$uzivatel}</p>
+            </div>
+        </section>
+        <div>{$novinka->text|noescape}</div>
+        <div>
+            {foreach $obrazky as $obrazek}
+                <a href="{$basePath}/images/{$obrazek}" data-lightbox="{$novinka->nadpis}"><img src="{$basePath}/images/thumbs/{$obrazek}" width="200px"></a>
+            {/foreach}
+        </div>
+    </article>
+
+{/block}
+{block scripts}
+    <script src="{$basePath}/js/lightbox.min.js"> </script>
+    <script>
+        lightbox.option({
+            'disableScrolling': true,
+            disableScrolling:true
+        });
+    </script>
+{/block}

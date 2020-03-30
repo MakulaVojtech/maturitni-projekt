@@ -1,0 +1,38 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Uživatelé - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Login</th>
+                    <th>Status</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $uzivatele as $uzivatel}
+                    {if $uzivatel->login != admin}
+                        <tr>
+                            <td>{$uzivatel->id}</td>
+                            <td>{$uzivatel->login}</td>
+                            {if $uzivatel->status == 1}
+                                <td>Admin</td>
+                            {else}
+                                <td>Běžný uživatel</td>
+                            {/if}
+                            <td>
+                                <a href="{link datAdmina! $uzivatel->id}" {if $uzivatel->status == 0}class="fa fa-chevron-up"{else}class="fa fa-chevron-down"{/if}></a>
+                                <a href="{link smazatUzivatele! $uzivatel->id}" class="fa fa-trash"></a>
+                            </td>
+                        </tr>
+                    {/if}
+                {/foreach}
+            </table>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,46 @@
+article{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 25px;
+}
+article div:first-child{
+    width: 25%;
+}
+article div:last-child{
+    width: 45%;
+}
+article div *{
+    padding: 5px;
+}
+.trener{
+    color: rgba(11,32,39,1);
+    text-decoration: none;
+    border: 1px solid rgba(64, 121, 140, 1);
+    padding: 15px;
+    transition: 0.5s;
+}
+.trener:hover{
+    transition: 0.5s;
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.75);
+}
+.fa{
+    font-size: 23px;
+    font-weight: bold;
+}
+article div:first-child p{
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 1024px){
+    article{
+        width: 100%;
+        flex-direction: column;
+    }
+    article div{
+        width: 90% !important;
+    }
+
+}

@@ -1,0 +1,32 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Fotogalerie - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Název alba</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $fotogalerie as $album}
+                    <tr>
+                        <td>{$album["album"]->id}</td>
+                        <td><a n:href=":upravitGalerii $album['album']->id">{$album['album']->nazev}</a></td>
+                        <td><a href="{link smazatAlbum! $album['album']->id}" class="fa fa-trash"></a></td>
+                    </tr>
+                {/foreach}
+            </table>
+            <a href="#galerie" rel="modal:open" class="fa fa-plus-circle"></a>
+        </div>
+    </div>
+    <div id="galerie" class="modal">
+        <h1>Přidat fotogalerii</h1>
+        {control galerieForm}
+    </div>
+{/block}

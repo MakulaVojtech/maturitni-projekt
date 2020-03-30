@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?makulavo.mp.spse-net\.cz$
+RewriteRule ^$ www/ [L]
+RewriteCond %{HTTP_HOST} ^(www\.)?makulavo.mp.spse-net\.cz$
+RewriteRule (.*) www/$1 [L]
+

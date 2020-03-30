@@ -1,0 +1,220 @@
+
+
+header{
+    z-index: 35;
+    position: fixed;
+    background-color: rgba(64, 121, 140, 1);
+    min-height: 50px;
+    min-width: 100%;
+    transition: 0.00000000000000000000000001ms;
+}
+header h1{
+    color: white;
+    font-size: 20px;
+}
+
+.container {
+    z-index: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.left {
+    flex: 2;
+    background-color: rgba(11, 32, 39, 1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 150px;
+    padding-bottom: 50px
+}
+.left a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    transition: .5s;
+}
+.left a:hover{
+    background-color: rgb(19, 53, 65);
+    transition: .5s;
+}
+
+
+.right {
+    flex: 10;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.right>*{
+    margin: 15px;
+}
+
+.right table{
+    width: 90%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.right table *{
+    padding: 5px;
+}
+.right table th{
+    background-color: rgba(11, 32, 39, 1);
+    color: white;
+}
+.right table tr:nth-child(2n + 1){
+    background-color: rgba(190, 183, 164, 1);
+}
+table a{
+    color:rgba(11, 32, 39, 1);
+    text-decoration: none;
+    padding-right: 15px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+}
+
+form >*{
+    margin: 15px;
+    border-radius: 3px;
+    width:100%;
+    min-width: 200px;
+    padding: 15px;
+}
+form *{
+    background-color: white;
+    text-align: left;
+}
+form th{
+    background-color: white !important;
+}
+
+form input{
+    padding: 5px;
+    box-shadow: 1px 2px 8px #666666;
+    border: 1px solid rgba(11,32,39,1);
+}
+input[type=radio]{
+    box-shadow: 0px 0px 0px rgba(00,00,00,0);
+    border: 0;
+    background-color: white; 
+}
+.note-editor{
+    box-shadow: 1px 2px 8px #666666 !important;
+    border: 1px solid rgba(11,32,39,1) !important;
+}
+.note-editor *{
+    padding: 5px !important;
+    margin: 0px !important;
+}
+.note-editor *:hover{
+    background-color: white !important;
+}
+.note-icon-bar{
+    padding: 1px !important;
+}
+.note-statusbar{
+    background-color: white !important;
+}
+
+.trenink_section{
+    border: 2px solid rgba(11, 32, 39, 1);
+    padding: 15px;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.trenink_section div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.fa-plus-circle, .fa-trash, .fa-money, .fa-clock-o{
+    color: rgba(11,32,39,1);
+    text-decoration: none;
+    font-size:50px;
+    transition: 0.5s;
+}
+.fa-trash{
+    font-size: 25px;
+    transition: .5s;
+}
+.fa-trash:hover{
+    transform: rotate(-15deg);
+    transition: .5s;
+}
+
+
+
+.fa-plus-circle:hover, .fa-money:hover, .fa-clock-o:hover{
+    color: rgba(64, 121, 140, 1);
+    transform: rotate(360deg);
+    transition: 0.5s;
+    cursor: pointer;
+}
+#obrazky{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+}
+.admin-image{
+    width: 300px;
+    height: 180px;
+    margin: 5px;
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.admin-image *{
+    color: white;
+    float: right;
+    transition: 0.5s;
+}
+form td  *{
+    margin: 7px;
+}
+.admin-image *:hover{
+    cursor: pointer;
+    transform: rotate(12deg);
+    transition: 0.5s;
+}
+
+.modal h1, .modal table td{
+    text-align: center;
+}
+@media screen and (max-width:1000px){
+    .container{
+        flex-direction: column;
+    }
+    .left, .right{
+        min-height: auto;
+    }
+    .left{
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .right{
+        padding: 5px;
+        width: 100%;
+    }
+    .trenink_section{
+        min-width: 80%;
+    }
+}

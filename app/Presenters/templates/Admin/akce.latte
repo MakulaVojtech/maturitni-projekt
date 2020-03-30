@@ -1,0 +1,36 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+ {/block}
+{block title}
+    Akce - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Datum</th>
+                    <th>Název</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $akce as $a}
+                    <tr>
+                        <td>{$a->id}</td>
+                        <td>{$a->datum|date: '%d.%m.%Y'}</td>
+                        <td>{$a->nazev}</td>
+                        <td>
+                            <a href="{link :smazatAkci! $a->id}" class="fa fa-trash"></a>
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+            <a href="#akce" rel="modal:open" class="fa fa-plus-circle"></a>
+        </div>
+    </div>
+    <div id="akce" class="modal" style="display: none">
+        <h1>Přidat akci</h1>
+        {control akceForm}
+    </div>
+{/block}

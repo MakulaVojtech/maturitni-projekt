@@ -1,0 +1,18 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/generator.css">
+{/block}
+{block content}
+    <article>
+        <h1 n:block="title">Generátor sekvencí</h1>
+       <div>
+           <h3>Počet prvků: </h3>
+           <p id="range_value">7</p>
+           <input type="range" min="3" max="10" id="range">
+       </div>
+        <div id="prvky"><button id="generovat">Generuj sekvenci</button></div>
+        <div id="sekvence"></div>
+    </article>
+{/block}
+{block scripts}
+    <script src="{$basePath}/js/generator.js"></script>
+{/block}

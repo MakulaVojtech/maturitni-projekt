@@ -1,0 +1,11 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/styles/login.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{/block}
+
+{block content}
+    <div id="loginDiv">
+        {control registraceForm}
+        <a n:href="Uzivatel:prihlas">Již mám účet.</a>
+    </div>
+{/block}

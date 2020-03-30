@@ -1,0 +1,22 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Upravit galerii
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <h1>{$galerie->nazev}</h1>
+            {control galerieForm}
+            <div id="obrazky">
+                {foreach $obrazky as $obrazek}
+                    <div style="background-image: url('{$basePath}/images/thumbs/{$obrazek->nazev}');" class="admin-image">
+                        <a class="fa fa-trash" n:href="smazatObrazek $obrazek->id, $galerie->id"></a>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+{/block}

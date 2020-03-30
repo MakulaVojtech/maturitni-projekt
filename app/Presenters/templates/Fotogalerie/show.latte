@@ -1,0 +1,26 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/fotogalerie.css">
+    <link rel="stylesheet" href="{$basePath}/css/lightbox.css">
+{/block}
+
+{block content}
+    <article>
+        <h1 n:block="title">{$album->nazev}</h1>
+        <p>-{$album->popis}</p>
+        <div id="galerie_div">
+            {foreach $obrazky as $obrazek}
+                <a href="{$basePath}/images/{$obrazek->nazev}" data-lightbox="{$album->nazev}"><img src="{$basePath}/images/thumbs/{$obrazek->nazev}"></a>
+            {/foreach}
+        </div>
+    </article>
+{/block}
+
+{block scripts}
+<script src="{$basePath}/js/lightbox.min.js"> </script>
+<script>
+    lightbox.option({
+        'disableScrolling': true,
+        disableScrolling:true
+    });
+</script>
+{/block}

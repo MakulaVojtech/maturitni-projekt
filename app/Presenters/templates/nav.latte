@@ -1,0 +1,65 @@
+<header>
+    <a n:href="Homepage:default" id="logoA"><img src="{$basePath}/logo.png" alt="Logo Vem Camará Capoeira" id="logo"><p class="nazev">Vem Camará Capoeira Pardubice</p></a>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">O nás</a>
+                <ul class="dropdown-menu">
+                    <a n:href="Novinky:show 1">
+                        <li>Capoeira</li>
+                    </a>
+                    <a n:href="Novinky:show 2">
+                        <li>Mestre Paçoca</li>
+                    </a>
+                    <a n:href="Novinky:show 3">
+                        <li>Vem Camará</li>
+                    </a>
+                </ul>
+            </li>
+            <li>
+                <a n:href="Treneri:default">Trenéři</a>
+            </li>
+            <li>
+                <a href="#">Novinky</a>
+                <ul class ="dropdown-menu">
+                    <a n:href="Novinky:">
+                        <li>Novinky</li>
+                    </a>
+                    <a n:href="Akce:default">
+                        <li>Plánované akce</li>
+                    </a>
+                </ul>
+            </li>
+            <li><a n:href="Cenik:default">Ceník</a></li>
+            <li>
+                <a href="#">Pro capoeiristy</a>
+                <ul class="dropdown-menu">
+                    <a n:href="Pisnicky:default">
+                        <li>Písničky</li>
+                    </a>
+                    <a n:href="GeneratorSekvenci:default">
+                        <li>Generátor sekvencí</li>
+                    </a>
+                </ul>
+            </li>
+            <li><a n:href="Fotogalerie:default">Fotogalerie</a></li>
+
+            {if $user->isInRole("admin")}
+                <li>
+                    <a n:href="Admin:default">Administrace</a>
+                </li>
+            {/if}
+
+            <li>
+               {if $user->isLoggedIn()}
+                    <a n:href="Homepage:logOut" id="loginlogout">Odhlásit se</a>
+                {else}
+                    <a href="#login" rel="modal:open" id="loginlogout">Přihlásit se</a>
+                {/if}
+            </li>
+        </ul>
+
+    </nav>
+    <em class="fa fa-bars" id="toggler"></em>
+</header>
+

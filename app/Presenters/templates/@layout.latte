@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="{$basePath}/js/header.js"></script>
+	<link rel="stylesheet" href="{$basePath}/css/main.css">
+	{block head}{/block}
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Vem Camará Capoeira Pardubice</title>
+</head>
+
+<body>
+	{include nav.latte}
+	<div n:foreach="$flashes as $flash" class="flash flash-{$flash->type}"><div>{$flash->message} <i class="fa fa-times flash-closer"></i></div></div>
+	{include content}
+	{include footer.latte}
+	
+	<div id="login" class="modal">
+		<h1>Přihlásit se</h1>
+		<form n:name="signInForm" class="loginRegistrForm">
+			<input n:name="login">
+			<input n:name="heslo">
+			{input remember}
+			{input captcha}
+			<input n:name="send">
+		</form>
+		<a href="#registrace" rel="modal:open">Ještě nemáš účet? Zaregistruj se!</a>
+	</div>
+	<div id="registrace" class="modal">
+		<h1>Registrace</h1>
+		<form n:name="signUpForm" class="loginRegistrForm">
+			<input n:name="login">
+			<input n:name="heslo">
+			<input n:name="hesloZnovu">
+			{input captcha}
+			<input n:name="send">
+		</form>
+		<a href="#login" rel="modal:open">Již máš účet? Přihlásit...</a>
+	</div>
+{block scripts}
+	
+{/block}
+<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+	<script src="{$basePath}/js/flashes.js"></script>
+</body>
+</html>

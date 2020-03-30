@@ -1,0 +1,120 @@
+header{
+    z-index: 35;
+    position: fixed;
+    background-color: rgba(64, 121, 140, 1);
+    min-height: 50px;
+    min-width: 100%;
+    transition: 0.00000000000000000000000001ms;
+}
+header h1{
+    color: white;
+    font-size: 20px;
+}
+.container {
+    z-index: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.left {
+    flex: 2;
+    background-color: rgba(11, 32, 39, 1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 150px;
+    padding-bottom: 50px
+}
+.left a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    transition: .5s;
+}
+.left a:hover{
+    background-color: rgb(19, 53, 65);
+    transition: .5s;
+}
+.right {
+     flex: 10;
+     padding-top: 140px;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     justify-content: flex-start;
+
+ }
+.right>*{
+    margin: 15px;
+}
+.pisnicka{
+    color: rgba(11, 32, 39, 1);
+    text-decoration: none;
+    border: 1px solid rgba(64, 121, 140, 1);
+    padding: 15px;
+    width: 80%;
+    transition: 0.5s;
+}
+.pisnicka:hover{
+    transition: 0.5s;
+    box-shadow: 1px 1px 6px 1px rgba(0,0,0,0.75);
+}
+.pisnicka *{
+    color: rgba(11,32,39,1);
+    text-decoration: none;
+}
+.fa-thumbs-up:hover, .fa-thumbs-down:hover{
+    color: rgba(64,121,140,1);
+    transition: .25s;
+}
+
+#pisnicka{
+    height: 100%;
+    margin-top: 10%;
+    padding: 30px;
+}
+#pisnicka section{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+ #pisnicka section:first-child{
+     flex-direction: column;
+     justify-content: center;
+     padding: 50px;
+     border-bottom: 2px solid rgba(11,32,39,1);
+ }
+@media screen and (max-width:1300px){
+    .container{
+        flex-direction: column;
+    }
+    .left, .right{
+        min-height: auto;
+    }
+    .left{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .right{
+        padding: 5px;
+        width: 100%;
+    }
+    .trenink_section{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width: 800px){
+    #pisnicka section{
+        flex-direction: column;
+        align-items: center;
+    }
+    iframe{
+        margin-top: 25px;
+        width: 90%;
+    }
+}

@@ -1,0 +1,32 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+{/block}
+{block title}
+    Písničky - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Název</th>
+                    <th>Rytmus</th>
+                    <th> :-) </th>
+                </tr>
+                {foreach $pisnicky as $pisnicka}
+                    <tr>
+                        <td>{$pisnicka->id}</td>
+                        <td><a n:href="Pisnicky:show $pisnicka->id" target="_blank">{$pisnicka->nazev}</a></td>
+                        <td>{$pisnicka->rytmus}</td>
+                        <td>
+                            <a href="{link :smazatPisnicku! $pisnicka->id}" class="fa fa-trash"></a>
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+            <a n:href=":pridatPisnicku" class="fa fa-plus-circle"></a>
+        </div>
+    </div>
+{/block}

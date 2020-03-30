@@ -1,0 +1,16 @@
+{block content}
+    <article>
+        <div id="akce">
+            <section>
+                <h1 n:block="title">Plánované akce</h1>
+                {foreach $akce as $a}
+                    <div>{$a->datum|date: '%d.%m.%Y'}: {$a->nazev}</div>
+                {/foreach}
+            </section>
+            <section>
+                <h1>Kalendář všech akcí ČAC</h1>
+                <iframe src="https://calendar.google.com/calendar/embed?height=800&amp;wkst=2&amp;bgcolor=%234e96ae&amp;ctz=Europe%2FPrague&amp;src=dW9pcDBrZ3M2bTYydmprYjc0ZTg0aW04cTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%239E69AF&amp;showPrint=0&amp;showTabs=0&amp;showNav=1&amp;showTitle=0&amp;showCalendars=0&amp;showTz=0&amp;title" style="border:solid 1px #777" width="800" height="500" frameborder="0" scrolling="no"></iframe>
+            </section>
+        </div>
+    </article>
+{/block}

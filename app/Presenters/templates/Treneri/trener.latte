@@ -1,0 +1,19 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/trener.css">
+{/block}
+
+{block content}
+    <article class="article">
+        <div>
+            <img src="{$basePath}/images/{$obrazek->nazev}" width="300px">
+            <h2>Kontakt</h2>
+            <p><i class="fa fa-envelope-o"></i>{$trener->email}</p>
+            <p><i class="fa fa-phone"></i> {$trener->telefon}</p>
+        </div>
+        <div>
+            <h1>{$trener->jmeno} {$trener->prijmeni} (<i n:block="title">{$trener->prezdivka}</i>)</h1>
+            {$trener->popis|noescape}
+        </div>
+    </article>
+
+{/block}

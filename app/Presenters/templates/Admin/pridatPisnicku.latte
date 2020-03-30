@@ -1,0 +1,33 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            <h1 n:block="title">Přidat písničku</h1>
+            {control pisnickaForm}
+        </div>
+    </div>
+{/block}
+{block scripts}
+    <script>
+        $(window).ready(function () {
+            $('#summernote').summernote({
+                height: 300,
+                maxHeight: 400,
+                minHeight: 300,
+                maxWidth: 500,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['para', ['paragraph']],
+                    ['insert', ['link', 'video']],
+                ]
+            });
+        });
+    </script>
+{/block}

@@ -1,0 +1,31 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/cenik.css">
+{/block}
+{block title}
+    Ceník
+{/block}
+{block content}
+    <article>
+            <div class="treninky">
+                {foreach $skupiny as $skupina}
+                    <div class="trenink_section">
+                        <h1>{$skupina["nazev"]}</h1>
+                        <div>
+                            <section>
+                                {foreach $skupina["ceny"] as $cena}
+                                    <p><b>{$cena->popis}:</b> {$cena->cena}Kč</p>
+                                {/foreach}
+                            </section>
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+            <div class="cenik">
+            <p><b>Členství v České Asociaci Capoeiry na rok:</b> 200,- Kč</p>
+            <h1>Platba přes bankovní účet</h1>
+            
+<p><b>ČÚ:</b> 2401054068 / 2010</p>
+<p><b>Do zprávy:</b> Jméno cvičence (nikoli platícího)</p>
+            </div>
+    </article>
+{/block}

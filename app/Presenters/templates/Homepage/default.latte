@@ -1,0 +1,67 @@
+{layout '../@layout.latte'}
+
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/index.css">
+{/block}
+
+{block content}
+    <div id="img1" class="img">
+        <h1>Vem Camará Capoeira Pardubice</h1>
+        <a n:href="Novinky:show 3" class="redButton">Chci vědět víc</a>
+    </div>
+    <div class="img" id="img2">
+        <div>
+            {foreach $info as $i}
+                <section id="i{$i->id}">
+                    <h1>{$i->nadpis}</h1>
+                    <p>{$i->text}</p>
+                </section>
+            {/foreach}
+        </div>
+        <div>
+            <a n:href="Novinky:show 1" class="redButton">Více</a>
+        </div>
+    </div>
+    <div id="news">
+        <h1>Novinky</h1>
+        <div>
+            {foreach $novinky as $novinka}
+                <a href="{link Novinky:show $novinka->id}">
+                    <section>
+                        <h1>{$novinka->nadpis}</h1>
+                        <div>
+                            <p>{$novinka->text|noescape|striptags|truncate:250}</p>
+                        </div>
+                    </section>
+                </a>
+            {/foreach}
+        </div>
+        <a n:href="Novinky:" class="redButton">Více</a>
+    </div>
+    <div id="info">
+        <section>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>+420 737 233 920</p>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <p>rato.Branco@email.cz</p>
+        </section>
+        <section>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            {foreach $treninky as $trenink}
+                <h1>{$trenink["den"]}</h1>
+                {foreach $trenink["trenink"] as $trenink}
+                    <p>{$trenink->nazev} ({$trenink->popis}) {$trenink->cas_zacatek|date:"%R"} - {$trenink->cas_konec|date:"%R"}</p>
+
+                {/foreach}
+            {/foreach}
+        </section>
+        <section>
+            <i class="fa fa-map-marker"></i>
+            <p>Dům dětí a mládeže Beta - Dubina</p>
+            <p>Jana Zajíce 983</p>
+            <p>530 12 Pardubice</p>
+        </section>
+    </div>
+
+{/block}
+

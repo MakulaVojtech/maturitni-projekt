@@ -1,0 +1,16 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/trener.css">
+{/block}
+{block title}
+    Trenéři
+{/block}
+{block content}
+    <article>
+        {foreach $treneri as $trener}
+            <a class="trener" n:href="Treneri:trener $trener->id">
+                <img src="{$basePath}/images/{$trener->nazev}" width="300px">
+                <h1>{$trener->jmeno} {$trener->prijmeni} (<i>{$trener->prezdivka}</i>)</h1>
+            </a>
+        {/foreach}
+    </article>
+{/block}

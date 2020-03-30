@@ -1,0 +1,47 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	- App\Model\UserManager
+	- App\Model\NovinkyManager
+	- App\Model\TreninkyManager
+	- App\Model\TreneriManager
+	- App\Model\CenikManager
+	- App\Model\PisnickyManager
+	- App\Model\FotoManager
+	- App\Forms\FormFactory
+	- App\Forms\SignInFormFactory
+	- App\Forms\SignUpFormFactory
+	- App\Forms\NovinkaFormFactory
+	- App\Forms\CenovkaFormFactory
+	- App\Forms\TreninkFormFactory
+	- App\Forms\SkupinaFormFactory
+	- App\Forms\TrenerFormFactory
+	- App\Forms\GalerieFormFactory
+	- App\Forms\PisnickaFormFactory
+	- App\Forms\AkceFormFactory
+	router: App\Router\RouterFactory::createRouter
+
+extensions:
+    recaptcha: ReCaptchaControl\DI\Extension
+
+recaptcha:
+	siteKey: '6LdGqdkUAAAAAOzaNZ9yl3FwOJ5ITxtS_cJpnniW'
+	secretKey: '6LdGqdkUAAAAAJEKx8wlWPUFg9BNO2q-r15_Lkcu'
+	methodName: 'addReCaptcha'
+	requester: ReCaptchaControl\Http\Requester\CurlRequester
+

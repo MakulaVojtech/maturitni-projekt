@@ -1,0 +1,48 @@
+{block head}
+    <link rel='stylesheet' href='{$basePath}/css/administrace.css'>
+   {/block}
+{block title}
+    Tréninky, ceník - Administrace
+{/block}
+{block content}
+    <div class="container">
+        {include left.latte}
+        <div class="right">
+            {foreach $skupiny as $skupina}
+                <div class="trenink_section">
+                    <h1>{$skupina["nazev"]} <a href="{link smazatSkupinu! $skupina["id"]}" class="fa fa-trash"></a></h1>
+                    <div>
+                        <section >
+                            <h2>Tréninky</h2>
+                            {foreach $skupina["treninky"] as $trenink}
+                                <h3>{$trenink->den} <a href="{link smazatTrenink! $trenink->id}" class="fa fa-trash"></a></h3>
+                                <p>{$trenink->cas_zacatek|date:'%R'} - {$trenink->cas_konec|date:'%H:%M'}</p>
+                            {/foreach}
+                        </section>
+                        <section>
+                            <h2>Ceny</h2>
+                            {foreach $skupina["ceny"] as $cena}
+                                <p>{$cena->popis}: {$cena->cena}Kč <a href="{link smazatCenu! $cena->id}" class="fa fa-trash"></a></p>
+                            {/foreach}
+                        </section>
+                    </div>
+                </div>
+            {/foreach}
+            <a href="#skupina" rel="modal:open" class="fa fa-plus-circle"></a>
+            <a href="#cena" rel="modal:open" class="fa fa-money"></a>
+            <a href="#trenink" rel="modal:open" class="fa fa-clock-o"></a>
+        </div>
+    </div>
+    <div id="cena" class="modal">
+        <h1>Přidat cenovku</h1>
+        {control pridatCenovkuForm}
+    </div>
+    <div id="trenink" class="modal">
+        <h1>Přidat trénink</h1>
+        {control pridatTreninkForm}
+    </div>
+    <div id="skupina" class="modal">
+        <h1>Přidat skupinu</h1>
+        {control skupinaForm}
+    </div>
+{/block}

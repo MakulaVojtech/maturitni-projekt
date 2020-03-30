@@ -1,0 +1,57 @@
+{block head}
+    <link rel="stylesheet" href="{$basePath}/css/pisnicky.css">
+{/block}
+{block title}
+    Písničky
+{/block}
+{block content}
+    <article class="container">
+        <div class="left">
+            <a n:href=":default 'angola'">Angola</a>
+            <a n:href=":default 'benguela'">Benguela</a>
+            <a n:href=":default 'saobento'">São Bento</a>
+            <a n:href=":default 'samba' ">Samba</a>
+            <a n:href=":default 'maculele' ">Maculelê</a>
+            <a n:href=":default '' ">Vše</a>
+            {if $user->isLoggedIn()}
+                <a n:href=":default 'oblibene'">Oblíbené písničky</a>
+            {/if}
+        </div>
+        <div class="right">
+            <input placeholder="Název písničky" id="songSearch">
+            {foreach $pisnicky as $pisnicka}
+                <div class="pisnicka">
+                    <a n:href=":show $pisnicka->id" >
+                        <h1>{$pisnicka->nazev}</h1>
+                        <i>
+                            {switch $pisnicka->rytmus}
+                                {case angola}
+                                    Angola
+                                {case benguela}
+                                    Benguela
+                                {case saobento}
+                                    São Bento
+                                {case samba}
+                                    Samba
+                                {case maculele}
+                                    Maculelê
+                            {/switch}
+                        </i>
+                        <p>{$pisnicka->text|noescape|striptags|truncate:150}</p>
+                    </a>
+                    {if $user->isLoggedIn()}
+                        {if isset($_GET["rytmus"]) && $_GET["rytmus"] == "oblibene"}
+                            <a href="{link odebratZOblibenych! $pisnicka->id}" class="fa fa-thumbs-down"></a>
+                        {else}
+                            <a href="{link pridatDoOblibenych! $pisnicka->id}" class="fa fa-thumbs-up"></a>
+                        {/if}
+                    {/if}
+                </div>
+            {/foreach}
+        </div>
+    </article>
+{/block}
+
+{block scripts}
+    <script src="{$basePath}/js/songSearch.js"></script>
+{/block}
